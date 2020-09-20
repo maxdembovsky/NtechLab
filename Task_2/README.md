@@ -11,8 +11,7 @@ $ python3 process.py folder/images
 The script saves the process_results.json file with information about the processing results.
 
 ### Data
-As a training and valid dataset i used https://drive.google.com/file/d/1-HUNDjcmSqdtMCvEkVlI0q43qlkcXBdK/view.
-
+As a training and valid dataset I used https://drive.google.com/file/d/1-HUNDjcmSqdtMCvEkVlI0q43qlkcXBdK/view.
 Before training, the data must be divided into two parts: training and validation.
 
 ### Train model
@@ -25,7 +24,7 @@ Accuracy 87.4 %
 
 Perhaps this low accuracy is due to the small amount of training data. If you have a GPU, you can try to train the model on more data.
 
-<p align="center"><img src="eval.png" width="360"\></p>
+<p align="center"><img src="eval.png" width="560"\></p>
 
 ### Author
 Dembovsky M.V. — student, Department of Biomedical Engineering systems, Bauman Moscow State Technical University, Moscow, Russian Federation.
