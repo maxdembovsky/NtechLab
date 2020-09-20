@@ -27,4 +27,4 @@ Perhaps this low accuracy is due to the small amount of training data. If you ha
 <p align="center"><img src="eval.png" width="560"\></p>
 
 ### Author
-Dembovsky M.V. — student, Department of Biomedical Engineering systems, Bauman Moscow State Technical University, Moscow, Russian Federation.
+Dembovsky M.V. — master, Department of Biomedical Engineering systems, Bauman Moscow State Technical University, Moscow, Russian Federation.
