@@ -1,86 +1,34 @@
-# OCTnet Classifier
-This repository contains a code of experiments conducted as part of research work http://ptsj.ru/articles/416/416.pdf. We have implemented classificator of OCT images with use of PyTorch DL framework. We have conducted comparative analysis of CNN architectures of varying complexity and have chosen the most effective one, that show excellent results on the validation sample.
+# Task_2
+A neural network has been implemented that is able to determine the gender of a person in the image from the input image of the face.
 
-<p align="center"><img src="assets/example.png" width="480"\></p>
+### Script launch
+To use a neural network, you need to pass a folder with images through the arguments.
 
-### Install needed package
-Used version of python - 3.7 (we recommend using virtualenv). 
-
-First need to install some libraries for image processing and deep learning framework. All packages that you need to install described in requirements.txt.
-
+The model does not need to be trained, since its parameters have already been saved in model_trained.pt.
 ```
-pip3 install -r requirements.txt
+$ python3 process.py folder/images
 ```
+The script saves the process_results.json file with information about the processing results.
 
 ### Data
-As a training and test dataset we used https://data.mendeley.com/datasets/rscbjbr9sj/2. 
+As a training and valid dataset i used https://drive.google.com/file/d/1-HUNDjcmSqdtMCvEkVlI0q43qlkcXBdK/view.
 
-##### Download data
-```
-$ cd dataset/
-$ bash get_oct_data.sh
-```
-You can execute the code from `data_visualize.ipynb` to get acquainted with the data.
+Before training, the data must be divided into two parts: training and validation.
 
-### Train
-```
-$ python train.py
-```
-We have compared some architectures of varying complexity. Initially we tried to train VGG16, then we began to reduce the complexity of the model. The result of our experiments was that we were able to train the lightest model Squeezenet1.1 and were able to achieve accuracy on the validation sample of 99.7%. We have trained the lightest model Squeezenet1.1 and have achieved accuracy on the validation sample of 99.7%. It is possible that such incredible accuracy is due to the fact that the data distribution in the training and test samples is very similar.
+### Train_model
+The "resnet8" model was taken as a basis.
 
-##### Tensorboard
-Track training progress in Tensorboard:
-* Initialize training
-* Run the command below
-* Go to http://localhost:6006/
+Since I don't have a GPU, I used 2000 training images and 1000 validation images, which probably affected the accuracy.
 
-```
-$ tensorboard --logdir='runs'
-```
+Cross-entropy was chosen as the loss function, since it is well suited for binary classification.
 
+Adam was chosen as the optimizer.
 
 ### Eval
-The script for evaluating models is located in `eval.ipynb`.
+Accuracy 87.4 %
+Perhaps this low accuracy is due to the small amount of training data. If you have a GPU, you can try to train the model on more data.
 
-##### Squeezenet1.1
-| Class       | F1 score | Precision | Recall |
-| ------------|:--------:|:---------:|:------:|
-| DRUSEN      | 1.0      |0.99       |1.0     |
-| CNV         | 1.0      |1.0        |1.0     |
-| DME         | 1.0      |1.0        |1.0     |
-| NORMAL      | 1.0      |1.0        |0.99    |
+<p align="center"><img src="eval.png" width="360"\></p>
 
-Accuracy 99.7 %
-
-<p align="center"><img src="assets/Squeezenet1_1_cm.png" width="360"\></p>
-
-##### DenseNet121
-| Class       |  F1 score | Precision  | Recall |
-| ------------|:---------:|:----------:|:------:|
-| DRUSEN      | 0.99      |0.99        |0.99    |
-| CNV         | 0.99      |0.98        |1.0     |
-| DME         | 0.99      |1.0         |0.99    |
-| NORMAL      | 1.0       |1.0         |1.0     |
-
-Accuracy 99.3 %
-
-<p align="center"><img src="assets/densenet121_cm.png" width="360"\></p>
-
-##### VGG16
-| Class       |  F1 score | Precision  | Recall  |
-| ------------|:---------:|:----------:|:-------:|
-| DRUSEN      | 0.99      |0.99        |1.0      |
-| CNV         | 0.99      |0.98        |0.99     |
-| DME         | 0.99      |1.0         |0.99     |
-| NORMAL      | 1.0       |1.0         |1.0      |
-
-Accuracy 99.3 %
-
-<p align="center"><img src="assets/vgg16_cm.png" width="360"\></p>
-
-As you can see, Squeezenet1.1 with simple architecture is not inferior to the VGG16 with more difficult architecture.
-
-### Authors
-Tsykunov D.V. — student, Department of Biomedical Engineering systems, Bauman Moscow State Technical University, Moscow, Russian Federation.
-
-Moiseeva V.A. — student, Department of Biomedical Engineering systems, Bauman Moscow State Technical University, Moscow, Russian Federation.
+### Author
+Dembovsky M.V. — student, Department of Biomedical Engineering systems, Bauman Moscow State Technical University, Moscow, Russian Federation.
