@@ -17,7 +17,7 @@ Before training, the data must be divided into two parts: training and validatio
 ### Train model
 Since I don't have a GPU, I used 2000 training images and 1000 validation images, which probably affected the accuracy.
 
-The "resnet18" model was taken as a basis. Cross-entropy was chosen as the loss function, since it is well suited for binary classification. Adam was chosen as the optimizer. To improve the quality of the model, I used augmentation.
+The "ResNet18" model was taken as a basis. Cross-entropy was chosen as the loss function, since it is well suited for binary classification. Adam was chosen as the optimizer. To improve the quality of the model, I used augmentation.
 
 ### Eval
 Accuracy 87.4 %
