@@ -16,20 +16,14 @@ As a training and valid dataset i used https://drive.google.com/file/d/1-HUNDjcm
 Before training, the data must be divided into two parts: training and validation.
 
 ### Train model
-The "resnet8" model was taken as a basis.
-
 Since I don't have a GPU, I used 2000 training images and 1000 validation images, which probably affected the accuracy.
 
-Cross-entropy was chosen as the loss function, since it is well suited for binary classification.
-
-Adam was chosen as the optimizer.
+The "resnet8" model was taken as a basis. Cross-entropy was chosen as the loss function, since it is well suited for binary classification. Adam was chosen as the optimizer. To improve the quality of the model, I used augmentation.
 
 ### Eval
 Accuracy 87.4 %
 
-Perhaps this low accuracy is due to the small amount of training data. 
-
-If you have a GPU, you can try to train the model on more data.
+Perhaps this low accuracy is due to the small amount of training data. If you have a GPU, you can try to train the model on more data.
 
 <p align="center"><img src="eval.png" width="360"\></p>
 
